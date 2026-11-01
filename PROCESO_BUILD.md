@@ -53,7 +53,7 @@ Crear un entorno aislado e instalar el wheel recién generado:
 py -m venv .venv-build
 .\.venv-build\Scripts\python.exe -m pip install .\dist\devops_tienda-1.0.0-py3-none-any.whl
 @("200", "25") | .\.venv-build\Scripts\devops-tienda.exe
-.\.venv-build\Scripts\python.exe -c "from devops_tienda.tienda import calcular_precio, calcular_iva; assert calcular_precio(200,25) == 150; assert calcular_iva(100) == 116; print('Validación correcta')"
+.\.venv-build\Scripts\python.exe -c "import math; from devops_tienda.tienda import calcular_precio, calcular_iva; assert math.isclose(calcular_precio(200,25), 150); assert math.isclose(calcular_iva(100), 116); print('Validación correcta')"
 ```
 
 **Comprobación:** la importación y las aserciones deben pasar; para precio 200 y descuento 25, la consola debe mostrar total con IVA de `$174.00`. El comando se ejecuta desde el entorno instalado, no desde `python tienda.py`.

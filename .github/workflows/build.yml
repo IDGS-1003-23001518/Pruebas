@@ -45,6 +45,6 @@ jobs:
         run: python -m pip install dist/*.whl
       - name: Verificar paquete y comando
         run: |
-          python -c "from devops_tienda.tienda import calcular_precio, calcular_iva; assert calcular_precio(200, 25) == 150; assert calcular_iva(100) == 116"
+          python -c "import math; from devops_tienda.tienda import calcular_precio, calcular_iva; assert math.isclose(calcular_precio(200, 25), 150); assert math.isclose(calcular_iva(100), 116)"
           printf '200\n25\n' | devops-tienda
 
