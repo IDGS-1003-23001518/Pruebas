@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devops-tienda"
+version = "1.0.0"
+description = "Paquete de tienda para prácticas de DevOps"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+devops-tienda = "devops_tienda.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
